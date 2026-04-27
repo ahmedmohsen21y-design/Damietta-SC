@@ -1,0 +1,251 @@
+# =============================================
+# DAMIETTA SC — Decap CMS Configuration
+# Access: damiettasc.netlify.app/admin
+# =============================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files uploaded via CMS go here
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# RTL locale support
+locale: ar
+site_url: https://damietta-sc.netlify.app
+display_url: https://damietta-sc.netlify.app
+
+collections:
+
+  # ============ NEXT MATCH (العداد التنازلي) ============
+  - name: "match"
+    label: "⚽ المباراة القادمة"
+    files:
+      - name: "next_match"
+        label: "بيانات المباراة القادمة"
+        file: "_data/match.json"
+        fields:
+          - { label: "اسم الخصم (عربي)",   name: "opponent_ar",   widget: "string" }
+          - { label: "اسم الخصم (إنجليزي)", name: "opponent_en",   widget: "string" }
+          - { label: "البطولة (عربي)",       name: "competition_ar",widget: "string", default: "الدوري المصري الممتاز" }
+          - { label: "البطولة (إنجليزي)",    name: "competition_en",widget: "string", default: "Egyptian Premier League" }
+          - { label: "تاريخ ووقت المباراة",  name: "datetime",      widget: "datetime" }
+          - { label: "ملعب المباراة (عربي)", name: "venue_ar",      widget: "string", default: "ملعب دمياط" }
+          - { label: "ملعب المباراة (إنجليزي)", name: "venue_en",   widget: "string", default: "Damietta Stadium" }
+          - { label: "هل دمياط تلعب في الديار؟", name: "is_home",  widget: "boolean", default: true }
+
+  # ============ RESULTS (النتائج) ============
+  - name: "results"
+    label: "📊 النتائج والجدول"
+    files:
+      - name: "results_data"
+        label: "النتائج الأخيرة وترتيب الدوري"
+        file: "_data/results.json"
+        fields:
+          - label: "آخر ٥ نتائج"
+            name: "recent"
+            widget: "list"
+            max: 5
+            fields:
+              - { label: "الفريق المضيف (عربي)",  name: "home_ar",       widget: "string" }
+              - { label: "الفريق المضيف (إنجليزي)",name: "home_en",       widget: "string" }
+              - { label: "أهداف المضيف",           name: "home_score",    widget: "number" }
+              - { label: "الفريق الضيف (عربي)",    name: "away_ar",       widget: "string" }
+              - { label: "الفريق الضيف (إنجليزي)", name: "away_en",       widget: "string" }
+              - { label: "أهداف الضيف",            name: "away_score",    widget: "number" }
+              - label: "البطولة"
+                name: "competition"
+                widget: "select"
+                options:
+                  - { label: "الدوري", value: "دوري" }
+                  - { label: "الكأس",  value: "كأس"  }
+              - label: "النتيجة من منظور دمياط"
+                name: "result"
+                widget: "select"
+                options:
+                  - { label: "فوز",    value: "win"  }
+                  - { label: "تعادل",  value: "draw" }
+                  - { label: "خسارة",  value: "loss" }
+
+          - label: "المباريات القادمة"
+            name: "upcoming"
+            widget: "list"
+            max: 5
+            fields:
+              - { label: "الفريق المضيف (عربي)",    name: "home_ar",       widget: "string" }
+              - { label: "الفريق المضيف (إنجليزي)",  name: "home_en",       widget: "string" }
+              - { label: "الفريق الضيف (عربي)",      name: "away_ar",       widget: "string" }
+              - { label: "الفريق الضيف (إنجليزي)",   name: "away_en",       widget: "string" }
+              - label: "البطولة"
+                name: "competition"
+                widget: "select"
+                options:
+                  - { label: "الدوري", value: "دوري" }
+                  - { label: "الكأس",  value: "كأس"  }
+              - { label: "التاريخ والوقت", name: "datetime", widget: "datetime" }
+
+          - label: "ترتيب الدوري (أول ٥ فرق)"
+            name: "table"
+            widget: "list"
+            max: 5
+            fields:
+              - { label: "الترتيب",           name: "position",    widget: "number" }
+              - { label: "اسم الفريق (عربي)",  name: "name_ar",     widget: "string" }
+              - { label: "اسم الفريق (إنجليزي)",name: "name_en",    widget: "string" }
+              - { label: "هل هو دمياط؟",       name: "is_damietta", widget: "boolean", default: false }
+              - { label: "مباريات لعبها",       name: "played",      widget: "number" }
+              - { label: "انتصارات",            name: "won",         widget: "number" }
+              - { label: "تعادلات",             name: "drawn",       widget: "number" }
+              - { label: "هزائم",               name: "lost",        widget: "number" }
+              - { label: "نقاط",                name: "points",      widget: "number" }
+
+  # ============ NEWS (الأخبار) ============
+  - name: "news"
+    label: "📰 الأخبار"
+    folder: "_data/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "العنوان (عربي)",    name: "title_ar",   widget: "string" }
+      - { label: "العنوان (إنجليزي)", name: "title_en",   widget: "string" }
+      - label: "التصنيف"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "تقرير مباراة",  value: "matches"   }
+          - { label: "انتقالات",      value: "transfers" }
+          - { label: "الأكاديمية",    value: "academy"   }
+          - { label: "مقابلة",        value: "interviews"}
+          - { label: "إعلان",         value: "announcements" }
+      - { label: "التاريخ",           name: "date",       widget: "datetime" }
+      - { label: "صورة الخبر",        name: "image",      widget: "image", required: false }
+      - { label: "مقتطف (عربي)",      name: "excerpt_ar", widget: "text" }
+      - { label: "مقتطف (إنجليزي)",   name: "excerpt_en", widget: "text" }
+      - { label: "المحتوى الكامل (عربي)",   name: "body_ar", widget: "markdown" }
+      - { label: "المحتوى الكامل (إنجليزي)", name: "body_en", widget: "markdown" }
+      - { label: "ظاهر في الصفحة الرئيسية؟", name: "featured", widget: "boolean", default: false }
+
+  # ============ PLAYERS (اللاعبون) ============
+  - name: "players"
+    label: "🏃 لاعبو الفريق الأول"
+    folder: "_data/players"
+    create: true
+    slug: "{{fields.number}}-{{slug}}"
+    fields:
+      - { label: "رقم القميص",        name: "number",      widget: "number" }
+      - { label: "الاسم (عربي)",       name: "name_ar",     widget: "string" }
+      - { label: "الاسم (إنجليزي)",    name: "name_en",     widget: "string" }
+      - label: "المركز"
+        name: "position"
+        widget: "select"
+        options:
+          - { label: "حارس مرمى",  value: "gk"  }
+          - { label: "مدافع",      value: "def" }
+          - { label: "وسط",        value: "mid" }
+          - { label: "مهاجم",      value: "fwd" }
+      - { label: "تسمية المركز (عربي)",   name: "position_label_ar", widget: "string" }
+      - { label: "تسمية المركز (إنجليزي)",name: "position_label_en", widget: "string" }
+      - { label: "صورة اللاعب",    name: "photo",       widget: "image", required: false }
+      - { label: "عدد المباريات",   name: "apps",        widget: "number", default: 0 }
+      - { label: "عدد الأهداف",     name: "goals",       widget: "number", default: 0 }
+      - { label: "عدد التمريرات الحاسمة", name: "assists", widget: "number", default: 0 }
+      - { label: "نظيفة (للحراس)", name: "clean_sheets",widget: "number", default: 0, required: false }
+      - { label: "نشط؟",           name: "active",      widget: "boolean", default: true }
+
+  # ============ ESPORTS PLAYERS ============
+  - name: "esports"
+    label: "🎮 لاعبو الألعاب الإلكترونية"
+    folder: "_data/esports"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "الاسم (عربي)",      name: "name_ar",   widget: "string" }
+      - { label: "الاسم (إنجليزي)",   name: "name_en",   widget: "string" }
+      - { label: "الاسم المستعار",    name: "gamertag",  widget: "string" }
+      - { label: "اللعبة",            name: "game",      widget: "string" }
+      - { label: "صورة اللاعب",       name: "photo",     widget: "image", required: false }
+      - { label: "الإنجازات",         name: "achievements_ar", widget: "text", required: false }
+      - { label: "نشط؟",              name: "active",    widget: "boolean", default: true }
+
+  # ============ BOARD (مجلس الإدارة) ============
+  - name: "board"
+    label: "👔 مجلس الإدارة"
+    folder: "_data/board"
+    create: true
+    slug: "{{fields.order}}-{{slug}}"
+    fields:
+      - { label: "الترتيب في العرض", name: "order",    widget: "number" }
+      - { label: "الاسم (عربي)",     name: "name_ar",  widget: "string" }
+      - { label: "الاسم (إنجليزي)",  name: "name_en",  widget: "string" }
+      - { label: "المنصب (عربي)",    name: "role_ar",  widget: "string" }
+      - { label: "المنصب (إنجليزي)", name: "role_en",  widget: "string" }
+      - { label: "الصورة",           name: "photo",    widget: "image", required: false }
+
+  # ============ PRODUCTS (المتجر) ============
+  - name: "products"
+    label: "🛍️ منتجات المتجر"
+    folder: "_data/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "اسم المنتج (عربي)",   name: "name_ar",  widget: "string" }
+      - { label: "اسم المنتج (إنجليزي)",name: "name_en",  widget: "string" }
+      - label: "الفئة"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "جرسيهات",    value: "jersey" }
+          - { label: "ملابس",      value: "wear"   }
+          - { label: "إكسسوارات",  value: "accs"   }
+      - { label: "السعر (جنيه)",  name: "price",    widget: "number" }
+      - { label: "صورة المنتج",   name: "image",    widget: "image" }
+      - { label: "متاح للبيع؟",   name: "available",widget: "boolean", default: false }
+      - { label: "شارة (مثل: جديد، خصم)", name: "badge_ar", widget: "string", required: false }
+
+  # ============ TICKETS (التذاكر) ============
+  - name: "tickets"
+    label: "🎟️ تذاكر المباريات"
+    folder: "_data/tickets"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "البطولة (عربي)",        name: "competition_ar", widget: "string" }
+      - { label: "البطولة (إنجليزي)",      name: "competition_en", widget: "string" }
+      - { label: "الفريق المضيف (عربي)",   name: "home_ar",        widget: "string" }
+      - { label: "الفريق المضيف (إنجليزي)",name: "home_en",        widget: "string" }
+      - { label: "الفريق الضيف (عربي)",    name: "away_ar",        widget: "string" }
+      - { label: "الفريق الضيف (إنجليزي)", name: "away_en",        widget: "string" }
+      - { label: "تاريخ ووقت المباراة",    name: "datetime",       widget: "datetime" }
+      - { label: "الملعب (عربي)",          name: "venue_ar",       widget: "string" }
+      - { label: "الملعب (إنجليزي)",       name: "venue_en",       widget: "string" }
+      - label: "حالة التذاكر"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "متاحة",       value: "available"  }
+          - { label: "مباراة خارج الديار", value: "away" }
+          - { label: "نفدت",        value: "sold_out"   }
+          - { label: "قريباً",      value: "coming_soon"}
+      - { label: "رابط الشراء (فوري)", name: "buy_url", widget: "string", required: false }
+
+  # ============ JOBS (الوظائف والتطوع) ============
+  - name: "jobs"
+    label: "💼 الوظائف والتطوع"
+    folder: "_data/jobs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "المسمى الوظيفي (عربي)",   name: "title_ar",  widget: "string" }
+      - { label: "المسمى الوظيفي (إنجليزي)", name: "title_en",  widget: "string" }
+      - label: "النوع"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "دوام كامل",  value: "fulltime"  }
+          - { label: "دوام جزئي",  value: "parttime"  }
+          - { label: "تطوع",       value: "volunteer" }
+      - { label: "القسم (عربي)",   name: "dept_ar",   widget: "string" }
+      - { label: "القسم (إنجليزي)",name: "dept_en",   widget: "string" }
+      - { label: "أيقونة (emoji)", name: "icon",      widget: "string", default: "💼" }
+      - { label: "ظاهر؟",          name: "active",    widget: "boolean", default: true }

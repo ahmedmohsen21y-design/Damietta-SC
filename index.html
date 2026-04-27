@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="mixed">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="title-ar" content="الرئيسية | نادي دمياط الرياضي">
+  <meta name="title-en" content="Home | Damietta SC">
+  <meta name="description" content="الموقع الرسمي لنادي دمياط الرياضي. تأسس عام ١٩٢٣ — الفريق الذي يُدغدغ أقدام الكبار."/>
+  <meta property="og:title"       content="نادي دمياط الرياضي"/>
+  <meta property="og:description" content="الفريق الذي يُدغدغ أقدام الكبار — منذ ١٩٢٣"/>
+  <meta property="og:type"        content="website"/>
+  <meta name="twitter:card"       content="summary_large_image"/>
+  <title>نادي دمياط الرياضي</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png"/>
+  <link rel="canonical" href="https://damiettasc.netlify.app/index.html"/>
+
+  <!-- Structured Data: SportsOrganization (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "نادي دمياط الرياضي",
+    "alternateName": "Damietta Sporting Club",
+    "url": "https://damiettasc.netlify.app",
+    "logo": "https://damiettasc.netlify.app/assets/images/logo.png",
+    "description": "الفريق الذي يُدغدغ أقدام الكبار — منذ ١٩٢٣",
+    "foundingDate": "1923",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "دمياط، مصر",
+      "addressCountry": "EG"
+    },
+    "sport": "Soccer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "دمياط",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://www.facebook.com/61587122421715/",
+      "https://www.instagram.com/damietta_s.c",
+      "https://www.tiktok.com/@damiettas.c"
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- SKIP LINK -->
+<a href="#main" class="skip-link" data-ar="تخطى إلى المحتوى" data-en="Skip to content">تخطى إلى المحتوى</a>
+<div id="srAnnounce" class="sr-announce" aria-live="polite" aria-atomic="true"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="نادي دمياط الرياضي">
+      <img src="assets/images/logo.png" alt="نادي دمياط الرياضي" class="nav-logo-img" width="46" height="60" loading="eager"/>
+    </a>
+    <nav class="nav-links" id="navLinks" role="navigation" aria-label="القائمة الرئيسية">
+      <a href="news.html"         class="nav-link" data-ar="الأخبار"          data-en="News">الأخبار</a>
+      <a href="team.html"         class="nav-link" data-ar="الفريق الأول"     data-en="First Team">الفريق الأول</a>
+      <a href="other-sports.html" class="nav-link" data-ar="الرياضات الأخرى"  data-en="Other Sports">الرياضات الأخرى</a>
+      <a href="history.html"      class="nav-link" data-ar="تاريخ النادي"     data-en="History">تاريخ النادي</a>
+      <a href="board.html"        class="nav-link" data-ar="مجلس الإدارة"    data-en="Board">مجلس الإدارة</a>
+      <a href="youth.html"        class="nav-link" data-ar="قطاع الناشئين"   data-en="Youth">قطاع الناشئين</a>
+      <a href="results.html"      class="nav-link" data-ar="النتائج والجداول" data-en="Results">النتائج والجداول</a>
+      <a href="contact.html"      class="nav-link" data-ar="تواصل معنا"      data-en="Contact">تواصل معنا</a>
+      <a href="sponsors.html"     class="nav-link" data-ar="الرعاة"           data-en="Sponsors">الرعاة</a>
+    </nav>
+    <div class="nav-controls">
+      <div class="theme-switcher" id="themeSwitcher" role="group" aria-label="اختيار السمة">
+        <button class="theme-btn" data-theme="mixed" aria-label="وضع مختلط">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <button class="theme-btn" data-theme="light" aria-label="وضع فاتح">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+      </div>
+      <button class="lang-btn" id="langToggle" aria-label="تغيير اللغة">EN</button>
+      <button class="hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<main id="main">
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-particles" id="particles"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge" data-ar="منذ ١٩٢٣" data-en="Since 1923">منذ ١٩٢٣</div>
+    <h1 class="hero-title">
+      <span class="hero-title-top"  data-ar="نادي"       data-en="Damietta">نادي</span>
+      <span class="hero-title-main" data-ar="دمياط" data-en="Sporting">دمياط</span>
+      <span class="hero-title-sub"  data-ar="الرياضي"   data-en="Club">الرياضي</span>
+    </h1>
+    <p class="hero-motto" data-ar="الفريق الذي يُدغدغ أقدام الكبار" data-en="The Team that Tickles the Giants">الفريق الذي يُدغدغ أقدام الكبار</p>
+    <div class="hero-ctas">
+      <a href="news.html"    class="btn btn-primary" data-ar="آخر الأخبار"     data-en="Latest News">آخر الأخبار</a>
+      <a href="results.html" class="btn btn-outline" data-ar="نتائج المباريات" data-en="Match Results">نتائج المباريات</a>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-card">
+    <div class="countdown-header">
+      <span class="countdown-league" data-ar="الدوري المصري الممتاز" data-en="Egyptian Premier League">الدوري المصري الممتاز</span>
+    </div>
+    <div class="countdown-match">
+      <div class="countdown-team">
+        <div class="team-badge home-badge">د</div>
+        <span data-ar="دمياط" data-en="Damietta">دمياط</span>
+      </div>
+      <div class="countdown-vs">
+        <span class="vs-text">VS</span>
+        <div class="countdown-timer" id="countdownTimer">
+          <div class="time-unit"><span id="days">00</span><small data-ar="يوم" data-en="Days">يوم</small></div>
+          <div class="time-sep">:</div>
+          <div class="time-unit"><span id="hours">00</span><small data-ar="ساعة" data-en="Hrs">ساعة</small></div>
+          <div class="time-sep">:</div>
+          <div class="time-unit"><span id="minutes">00</span><small data-ar="دقيقة" data-en="Min">دقيقة</small></div>
+          <div class="time-sep">:</div>
+          <div class="time-unit"><span id="seconds">00</span><small data-ar="ثانية" data-en="Sec">ثانية</small></div>
+        </div>
+        <div class="match-date" data-ar="السبت ١٠ مايو، ٢٠٢٦ | ٧:٣٠ م" data-en="Sat 10 May, 2026 | 7:30 PM">السبت ١٠ مايو، ٢٠٢٦ | ٧:٣٠ م</div>
+      </div>
+      <div class="countdown-team">
+        <div class="team-badge away-badge">خ</div>
+        <span data-ar="الخصم" data-en="Opponent">الخصم</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar" aria-label="إحصائيات النادي">
+  <div class="stats-bar-inner">
+    <div class="stat-item"><span class="stat-num">١٠٢</span><span class="stat-label" data-ar="عام من المجد" data-en="Years of Glory">عام من المجد</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">٩</span><span class="stat-label" data-ar="فريق رياضي" data-en="Sports Teams">فريق رياضي</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">٢٣+</span><span class="stat-label" data-ar="لاعب في الفريق الأول" data-en="First Team Players">لاعب في الفريق الأول</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">١٩٢٣</span><span class="stat-label" data-ar="تأسيس النادي" data-en="Club Founded">تأسيس النادي</span></div>
+  </div>
+</div>
+
+<!-- LATEST NEWS PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-ar="آخر الأخبار" data-en="Latest News">آخر الأخبار</div>
+      <h2 class="section-title" data-ar="أخبار النادي" data-en="Club News">أخبار النادي</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="news-grid">
+      <article class="news-card featured" data-cat="matches">
+        <div class="news-img">
+          <div class="news-img-placeholder"><div class="placeholder-icon">⚽</div></div>
+          <div class="news-cat-badge" data-ar="تقرير المباراة" data-en="Match Report">تقرير المباراة</div>
+        </div>
+        <div class="news-body">
+          <span class="news-date" data-ar="٢٠ أبريل ٢٠٢٦" data-en="Apr 20, 2026">٢٠ أبريل ٢٠٢٦</span>
+          <h3 class="news-title" data-ar="دمياط يُسقط الغول في مباراة تاريخية لا تُنسى" data-en="Damietta Defeats the Giant in a Historic Unforgettable Match">دمياط يُسقط الغول في مباراة تاريخية لا تُنسى</h3>
+          <p class="news-excerpt" data-ar="في مشهد لن ينساه جمهور الميناء الجميل، نجح نادي دمياط في تحقيق فوز تاريخي على أحد أعتى الأندية المصرية..." data-en="In a scene the fans of the beautiful port will never forget, Damietta SC achieved a historic victory over one of Egypt's toughest clubs...">في مشهد لن ينساه جمهور الميناء الجميل، نجح نادي دمياط في تحقيق فوز تاريخي على أحد أعتى الأندية المصرية...</p>
+          <a href="article.html?id=historic-win" class="news-read-more" data-ar="اقرأ المزيد ←" data-en="Read More →">اقرأ المزيد ←</a>
+        </div>
+      </article>
+      <article class="news-card" data-cat="transfers">
+        <div class="news-img">
+          <div class="news-img-placeholder"><div class="placeholder-icon">🔄</div></div>
+          <div class="news-cat-badge" data-ar="انتقالات" data-en="Transfers">انتقالات</div>
+        </div>
+        <div class="news-body">
+          <span class="news-date" data-ar="١٨ أبريل ٢٠٢٦" data-en="Apr 18, 2026">١٨ أبريل ٢٠٢٦</span>
+          <h3 class="news-title" data-ar="انضمام رسمي: لاعب جديد يرتدي قميص دمياط" data-en="Official Signing: New Player Joins Damietta">انضمام رسمي: لاعب جديد يرتدي قميص دمياط</h3>
+          <a href="article.html?id=signing" class="news-read-more" data-ar="اقرأ المزيد ←" data-en="Read More →">اقرأ المزيد ←</a>
+        </div>
+      </article>
+      <article class="news-card" data-cat="academy">
+        <div class="news-img">
+          <div class="news-img-placeholder"><div class="placeholder-icon">🌱</div></div>
+          <div class="news-cat-badge" data-ar="الأكاديمية" data-en="Academy">الأكاديمية</div>
+        </div>
+        <div class="news-body">
+          <span class="news-date" data-ar="١٥ أبريل ٢٠٢٦" data-en="Apr 15, 2026">١٥ أبريل ٢٠٢٦</span>
+          <h3 class="news-title" data-ar="مواهب أكاديمية دمياط تتألق في بطولة الناشئين" data-en="Damietta Academy Talents Shine in Youth Tournament">مواهب أكاديمية دمياط تتألق في بطولة الناشئين</h3>
+          <a href="article.html?id=academy-shine" class="news-read-more" data-ar="اقرأ المزيد ←" data-en="Read More →">اقرأ المزيد ←</a>
+        </div>
+      </article>
+    </div>
+    <div class="section-cta">
+      <a href="news.html" class="btn btn-outline" data-ar="جميع الأخبار" data-en="All News">جميع الأخبار</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP BANNER -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="membership-banner">
+      <div class="membership-text">
+        <div class="section-tag" data-ar="انضم للعائلة" data-en="Join the Family">انضم للعائلة</div>
+        <h2 data-ar="كن جزءاً من نادي دمياط" data-en="Be Part of Damietta SC">كن جزءاً من نادي دمياط</h2>
+        <p data-ar="سجّل كعضو وتمتع بمزايا حصرية، أو انضم إلينا كمتطوع وساهم في بناء مستقبل النادي." data-en="Register as a member for exclusive benefits, or join us as a volunteer and help build the club's future.">سجّل كعضو وتمتع بمزايا حصرية، أو انضم إلينا كمتطوع وساهم في بناء مستقبل النادي.</p>
+        <div class="membership-btns">
+          <a href="membership.html"      class="btn btn-primary" data-ar="سجل عضويتك"           data-en="Register Membership">سجل عضويتك</a>
+          <a href="join.html"            class="btn btn-outline" data-ar="انضم إلينا"             data-en="Join Us">انضم إلينا</a>
+          <a href="academy-register.html" class="btn btn-gold btn-sm" data-ar="أكاديمية الناشئين" data-en="Youth Academy">أكاديمية الناشئين</a>
+        </div>
+      </div>
+      <div class="membership-visual">
+        <div class="membership-badge-large">
+          <span class="badge-d">د</span>
+          <span class="badge-label" data-ar="عضو رسمي" data-en="Official Member">عضو رسمي</span>
+          <span class="badge-year">١٩٢٣</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLL -->
+<section class="section">
+  <div class="container narrow">
+    <div class="section-header">
+      <div class="section-tag" data-ar="رأيك يهمنا" data-en="Your Opinion Matters">رأيك يهمنا</div>
+      <h2 class="section-title" data-ar="استطلاع الجمهور" data-en="Fan Poll">استطلاع الجمهور</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="poll-card">
+      <p class="poll-question" data-ar="ما توقعك لنتيجة المباراة القادمة؟" data-en="What's your prediction for the next match?">ما توقعك لنتيجة المباراة القادمة؟</p>
+      <div class="poll-options" id="pollOptions">
+        <button class="poll-option" data-value="win">
+          <span data-ar="فوز دمياط 🔵" data-en="Damietta Win 🔵">فوز دمياط 🔵</span>
+          <div class="poll-bar"><div class="poll-fill" data-pct="62"></div></div>
+          <span class="poll-pct">62%</span>
+        </button>
+        <button class="poll-option" data-value="draw">
+          <span data-ar="تعادل" data-en="Draw">تعادل</span>
+          <div class="poll-bar"><div class="poll-fill" data-pct="24"></div></div>
+          <span class="poll-pct">24%</span>
+        </button>
+        <button class="poll-option" data-value="loss">
+          <span data-ar="فوز الخصم" data-en="Opponent Win">فوز الخصم</span>
+          <div class="poll-bar"><div class="poll-fill" data-pct="14"></div></div>
+          <span class="poll-pct">14%</span>
+        </button>
+      </div>
+      <p class="poll-votes" data-ar="١٢٤٨ صوت حتى الآن" data-en="1,248 votes so far">١٢٤٨ صوت حتى الآن</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- NEWSLETTER + FOOTER -->
+<div class="newsletter-bar">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <h4 data-ar="اشترك في النشرة البريدية" data-en="Subscribe to Newsletter">اشترك في النشرة البريدية</h4>
+        <p data-ar="كن أول من يعلم بأخبار النادي والمباريات والعروض الحصرية" data-en="Be first to know about club news, matches and exclusive offers">كن أول من يعلم بأخبار النادي والمباريات والعروض الحصرية</p>
+      </div>
+      <div class="newsletter-form">
+        <input type="email" data-ar-placeholder="بريدك الإلكتروني" data-en-placeholder="Your email address" placeholder="بريدك الإلكتروني" aria-label="البريد الإلكتروني"/>
+        <button class="btn btn-primary" data-ar="اشترك" data-en="Subscribe">اشترك</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/logo.png" alt="نادي دمياط الرياضي" class="footer-logo-img" width="38" height="49" loading="lazy"/>
+          <div><div class="footer-club-name" data-ar="نادي دمياط الرياضي" data-en="Damietta SC">نادي دمياط الرياضي</div><div class="footer-since" data-ar="منذ ١٩٢٣" data-en="Since 1923">منذ ١٩٢٣</div></div>
+        </div>
+        <p class="footer-motto" data-ar="الفريق الذي يُدغدغ أقدام الكبار" data-en="The Team that Tickles the Giants">الفريق الذي يُدغدغ أقدام الكبار</p>
+      </div>
+      <div class="footer-links-col">
+        <h5 data-ar="النادي" data-en="The Club">النادي</h5>
+        <ul>
+          <li><a href="news.html"    data-ar="الأخبار"        data-en="News">الأخبار</a></li>
+          <li><a href="team.html"    data-ar="الفريق الأول"   data-en="First Team">الفريق الأول</a></li>
+          <li><a href="history.html" data-ar="تاريخ النادي"   data-en="History">تاريخ النادي</a></li>
+          <li><a href="board.html"   data-ar="مجلس الإدارة"  data-en="Board">مجلس الإدارة</a></li>
+          <li><a href="youth.html"   data-ar="قطاع الناشئين" data-en="Youth">قطاع الناشئين</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h5 data-ar="الخدمات" data-en="Services">الخدمات</h5>
+        <ul>
+          <li><a href="store.html"           data-ar="المتجر الإلكتروني" data-en="Online Store">المتجر الإلكتروني</a></li>
+          <li><a href="tickets.html"         data-ar="شراء التذاكر"      data-en="Buy Tickets">شراء التذاكر</a></li>
+          <li><a href="membership.html"      data-ar="العضوية"            data-en="Membership">العضوية</a></li>
+          <li><a href="academy-register.html" data-ar="تسجيل الأكاديمية"  data-en="Academy Register">تسجيل الأكاديمية</a></li>
+          <li><a href="join.html"            data-ar="انضم إلينا"         data-en="Join Us">انضم إلينا</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h5 data-ar="روابط أخرى" data-en="Other Links">روابط أخرى</h5>
+        <ul>
+          <li><a href="results.html"  data-ar="النتائج والجداول" data-en="Results">النتائج والجداول</a></li>
+          <li><a href="sponsors.html" data-ar="الرعاة"            data-en="Sponsors">الرعاة</a></li>
+          <li><a href="contact.html"  data-ar="تواصل معنا"        data-en="Contact">تواصل معنا</a></li>
+          <li><a href="privacy.html"  data-ar="سياسة الخصوصية"   data-en="Privacy Policy">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-ar="© 2026 نادي دمياط الرياضي. جميع الحقوق محفوظة." data-en="© 2026 Damietta SC. All rights reserved.">© 2026 نادي دمياط الرياضي. جميع الحقوق محفوظة.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" data-ar="سياسة الخصوصية" data-en="Privacy">سياسة الخصوصية</a>
+        <a href="terms.html" data-ar="الشروط والأحكام" data-en="Terms">الشروط والأحكام</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

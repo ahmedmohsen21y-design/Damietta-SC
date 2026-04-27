@@ -1,0 +1,21 @@
+{
+  "recent": [
+    { "home_ar": "دمياط",  "home_en": "Damietta", "home_score": 2, "away_ar": "الخصم", "away_en": "Opponent", "away_score": 1, "competition": "دوري", "result": "win"  },
+    { "home_ar": "الخصم",  "home_en": "Opponent", "home_score": 1, "away_ar": "دمياط", "away_en": "Damietta", "away_score": 1, "competition": "كأس",  "result": "draw" },
+    { "home_ar": "دمياط",  "home_en": "Damietta", "home_score": 3, "away_ar": "الخصم", "away_en": "Opponent", "away_score": 0, "competition": "دوري", "result": "win"  },
+    { "home_ar": "الخصم",  "home_en": "Opponent", "home_score": 2, "away_ar": "دمياط", "away_en": "Damietta", "away_score": 0, "competition": "دوري", "result": "loss" },
+    { "home_ar": "دمياط",  "home_en": "Damietta", "home_score": 1, "away_ar": "الخصم", "away_en": "Opponent", "away_score": 0, "competition": "دوري", "result": "win"  }
+  ],
+  "upcoming": [
+    { "home_ar": "دمياط", "home_en": "Damietta", "away_ar": "الخصم", "away_en": "Opponent", "competition": "دوري", "datetime": "2026-05-10T19:30:00" },
+    { "home_ar": "الخصم", "home_en": "Opponent", "away_ar": "دمياط", "away_en": "Damietta", "competition": "كأس",  "datetime": "2026-05-13T18:00:00" },
+    { "home_ar": "دمياط", "home_en": "Damietta", "away_ar": "الخصم", "away_en": "Opponent", "competition": "دوري", "datetime": "2026-05-16T20:00:00" }
+  ],
+  "table": [
+    { "position": 1, "name_ar": "الأهلي",   "name_en": "Al Ahly",   "is_damietta": false, "played": 26, "won": 21, "drawn": 3, "lost": 2,  "points": 66 },
+    { "position": 2, "name_ar": "الزمالك",  "name_en": "Zamalek",   "is_damietta": false, "played": 26, "won": 17, "drawn": 5, "lost": 4,  "points": 56 },
+    { "position": 3, "name_ar": "بيراميدز", "name_en": "Pyramids",  "is_damietta": false, "played": 26, "won": 14, "drawn": 5, "lost": 7,  "points": 47 },
+    { "position": 4, "name_ar": "دمياط",    "name_en": "Damietta",  "is_damietta": true,  "played": 26, "won": 13, "drawn": 6, "lost": 7,  "points": 45 },
+    { "position": 5, "name_ar": "فريق",     "name_en": "Club",      "is_damietta": false, "played": 26, "won": 11, "drawn": 5, "lost": 10, "points": 38 }
+  ]
+}

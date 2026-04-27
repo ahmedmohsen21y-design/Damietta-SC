@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://damiettasc.netlify.app/</loc>               <changefreq>daily</changefreq>  <priority>1.0</priority></url>
+  <url><loc>https://damiettasc.netlify.app/news.html</loc>       <changefreq>daily</changefreq>  <priority>0.9</priority></url>
+  <url><loc>https://damiettasc.netlify.app/team.html</loc>       <changefreq>weekly</changefreq> <priority>0.9</priority></url>
+  <url><loc>https://damiettasc.netlify.app/results.html</loc>    <changefreq>daily</changefreq>  <priority>0.8</priority></url>
+  <url><loc>https://damiettasc.netlify.app/history.html</loc>    <changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://damiettasc.netlify.app/board.html</loc>      <changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://damiettasc.netlify.app/youth.html</loc>      <changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://damiettasc.netlify.app/other-sports.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://damiettasc.netlify.app/sponsors.html</loc>   <changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://damiettasc.netlify.app/contact.html</loc>    <changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://damiettasc.netlify.app/membership.html</loc> <changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://damiettasc.netlify.app/store.html</loc>      <changefreq>weekly</changefreq> <priority>0.7</priority></url>
+  <url><loc>https://damiettasc.netlify.app/tickets.html</loc>    <changefreq>weekly</changefreq> <priority>0.8</priority></url>
+  <url><loc>https://damiettasc.netlify.app/join.html</loc>       <changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>
