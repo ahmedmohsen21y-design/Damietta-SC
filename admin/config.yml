@@ -27,6 +27,7 @@ collections:
       - name: "next_match"
         label: "بيانات المباراة القادمة"
         file: "_data/match.json"
+        format: json
         fields:
           - { label: "اسم الخصم (عربي)",   name: "opponent_ar",   widget: "string" }
           - { label: "اسم الخصم (إنجليزي)", name: "opponent_en",   widget: "string" }
@@ -44,6 +45,7 @@ collections:
       - name: "results_data"
         label: "النتائج الأخيرة وترتيب الدوري"
         file: "_data/results.json"
+        format: json
         fields:
           - label: "آخر ٥ نتائج"
             name: "recent"
@@ -107,6 +109,8 @@ collections:
     label: "📰 الأخبار"
     folder: "_data/news"
     create: true
+    format: json
+    extension: json
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "العنوان (عربي)",    name: "title_ar",   widget: "string" }
@@ -133,6 +137,8 @@ collections:
     label: "🏃 لاعبو الفريق الأول"
     folder: "_data/players"
     create: true
+    format: json
+    extension: json
     slug: "{{fields.number}}-{{slug}}"
     fields:
       - { label: "رقم القميص",        name: "number",      widget: "number" }
@@ -160,6 +166,8 @@ collections:
     label: "🎮 لاعبو الألعاب الإلكترونية"
     folder: "_data/esports"
     create: true
+    format: json
+    extension: json
     slug: "{{slug}}"
     fields:
       - { label: "الاسم (عربي)",      name: "name_ar",   widget: "string" }
@@ -175,6 +183,8 @@ collections:
     label: "👔 مجلس الإدارة"
     folder: "_data/board"
     create: true
+    format: json
+    extension: json
     slug: "{{fields.order}}-{{slug}}"
     fields:
       - { label: "الترتيب في العرض", name: "order",    widget: "number" }
@@ -189,6 +199,8 @@ collections:
     label: "🛍️ منتجات المتجر"
     folder: "_data/products"
     create: true
+    format: json
+    extension: json
     slug: "{{slug}}"
     fields:
       - { label: "اسم المنتج (عربي)",   name: "name_ar",  widget: "string" }
@@ -210,6 +222,8 @@ collections:
     label: "🎟️ تذاكر المباريات"
     folder: "_data/tickets"
     create: true
+    format: json
+    extension: json
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "البطولة (عربي)",        name: "competition_ar", widget: "string" }
@@ -236,6 +250,8 @@ collections:
     label: "💼 الوظائف والتطوع"
     folder: "_data/jobs"
     create: true
+    format: json
+    extension: json
     slug: "{{slug}}"
     fields:
       - { label: "المسمى الوظيفي (عربي)",   name: "title_ar",  widget: "string" }
