@@ -12,7 +12,7 @@ media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 # RTL locale support
-locale: ar
+locale: en
 site_url: https://damietta-sc.netlify.app
 display_url: https://damietta-sc.netlify.app
 
