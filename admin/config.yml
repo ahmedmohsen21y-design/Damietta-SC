@@ -7,12 +7,14 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
+
 # Media files uploaded via CMS go here
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 # RTL locale support
-locale: en
+locale: ar
 site_url: https://damietta-sc.netlify.app
 display_url: https://damietta-sc.netlify.app
 

@@ -1,9 +1,9 @@
 {
   "files": [
-    "historic-win.json",
-    "signing.json",
     "academy-shine.json",
+    "away-draw.json",
     "coach-ambition.json",
-    "away-draw.json"
+    "historic-win.json",
+    "signing.json"
   ]
 }

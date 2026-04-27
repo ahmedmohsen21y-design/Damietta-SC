@@ -3,6 +3,7 @@
 # =============================================
 
 [build]
+  command = "node generate-indexes.js"
   publish = "."
 
 # ===== HEADERS (Security + Performance) =====

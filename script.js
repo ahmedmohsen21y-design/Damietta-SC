@@ -38,12 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Page-specific inits
   if (document.getElementById('particles'))      initParticles();
   if (document.getElementById('countdownTimer')) initCountdown();
-  if (document.querySelector('.news-filter'))    initNewsFilter();
-  if (document.querySelector('.position-filter'))initPlayerFilter();
-  if (document.getElementById('contactForm'))    initContactForm();
-  if (document.getElementById('pollOptions'))    initPoll();
-  if (document.querySelector('.newsletter-form'))initNewsletter();
-  if (document.querySelector('.reg-form'))       initRegForm();
+  if (document.querySelector('.news-grid'))      loadNewsData();
+  if (document.querySelector('.news-filter'))     initNewsFilter();
+  if (document.querySelector('.position-filter')) initPlayerFilter();
+  if (document.getElementById('contactForm'))     initContactForm();
+  if (document.getElementById('pollOptions'))     initPoll();
+  if (document.querySelector('.newsletter-form')) initNewsletter();
+  if (document.querySelector('.reg-form'))        initRegForm();
 });
 
 // ===== THEME =====
@@ -235,30 +236,96 @@ function initParticles() {
 
 // ===== NEWS FILTER =====
 function initNewsFilter() {
-  const btns  = document.querySelectorAll('.news-filter .filter-btn');
-  const cards = document.querySelectorAll('.news-card');
-  if (!btns.length) return;
+  const buttons = document.querySelectorAll('.news-filter .filter-btn');
+  if (!buttons.length) return;
 
-  btns.forEach(btn => {
+  const applyFilter = (cat) => {
+    document.querySelectorAll('.news-grid .news-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = show ? '' : 'none';
+    });
+  };
+
+  buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      cards.forEach(card => {
-        const show = cat === 'all' || card.dataset.cat === cat;
-        if (show) {
-          card.style.display = '';
-          // fix: don't set span 2 via JS — CSS handles it with @media
-          requestAnimationFrame(() => {
-            card.style.opacity   = '1';
-            card.style.transform = 'translateY(0)';
-          });
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      applyFilter(btn.dataset.cat || 'all');
     });
   });
+
+  applyFilter(document.querySelector('.news-filter .filter-btn.active')?.dataset.cat || 'all');
+}
+
+// ===== NEWS LOADER =====
+function getNewsCategoryLabel(category, lang) {
+  const map = {
+    matches: { ar: 'تقرير مباراة', en: 'Match Report' },
+    transfers: { ar: 'انتقالات', en: 'Transfers' },
+    academy: { ar: 'الأكاديمية', en: 'Academy' },
+    interviews: { ar: 'مقابلة', en: 'Interview' },
+    announcements: { ar: 'إعلان', en: 'Announcement' }
+  };
+  return (map[category] && map[category][lang]) || (category || '');
+}
+
+function getNewsExcerpt(item, lang) {
+  const explicit = lang === 'ar' ? item.excerpt_ar : item.excerpt_en;
+  if (explicit) return explicit;
+  const body = lang === 'ar' ? item.body_ar : item.body_en;
+  if (!body) return '';
+  const firstParagraph = String(body).split(/\n\n+/)[0].trim();
+  return firstParagraph.length > 180 ? firstParagraph.slice(0, 177).trimEnd() + '…' : firstParagraph;
+}
+
+function renderNewsCard(item, slug, lang, featured = false) {
+  const title = lang === 'ar' ? item.title_ar : item.title_en;
+  const date = item.date ? new Date(item.date) : null;
+  const dateStr = date
+    ? date.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { year:'numeric', month:'short', day:'numeric' })
+    : '';
+  const category = getNewsCategoryLabel(item.category, lang);
+  const excerpt = getNewsExcerpt(item, lang);
+  const image = item.image
+    ? `<div class="news-img"><img src="${item.image}" alt="${title}" loading="lazy" style="width:100%;height:100%;object-fit:cover"/><div class="news-cat-badge">${category}</div></div>`
+    : `<div class="news-img"><div class="news-img-placeholder"><div class="placeholder-icon">📰</div></div><div class="news-cat-badge">${category}</div></div>`;
+
+  return `
+    <article class="news-card${featured ? ' featured' : ''}" data-cat="${item.category || 'announcements'}" data-slug="${slug}">
+      ${image}
+      <div class="news-body">
+        <span class="news-date">${dateStr}</span>
+        <h3 class="news-title">${title}</h3>
+        ${excerpt ? `<p class="news-excerpt">${excerpt}</p>` : ''}
+        <a href="article.html?id=${slug}" class="news-read-more">${lang === 'ar' ? 'اقرأ المزيد ←' : 'Read More →'}</a>
+      </div>
+    </article>`;
+}
+
+async function loadNewsData() {
+  const grid = document.querySelector('.news-grid');
+  if (!grid) return;
+
+  const index = await loadJSON('_data/news/index.json');
+  if (!index || !Array.isArray(index.files) || !index.files.length) return;
+
+  const files = index.files.filter(f => typeof f === 'string' && f.endsWith('.json') && f !== 'index.json');
+  const items = (await Promise.all(files.map(async (file) => {
+    const slug = file.replace(/\.json$/i, '');
+    const data = await loadJSON(`_data/news/${file}`);
+    return data ? { ...data, __slug: slug } : null;
+  }))).filter(Boolean).sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+  const lang = currentLang;
+  const isListingPage = !!document.querySelector('.news-filter');
+  const visibleItems = isListingPage ? items : items.slice(0, 3);
+
+  grid.innerHTML = visibleItems.map((item, idx) => renderNewsCard(item, item.__slug, lang, idx === 0)).join('');
+
+  if (isListingPage) {
+    const pagination = document.querySelector('.pagination');
+    if (pagination) pagination.style.display = 'none';
+  }
 }
 
 // ===== PLAYER FILTER =====
@@ -517,7 +584,7 @@ console.log('%c⚽ نادي دمياط الرياضي — منذ ١٩٢٣', 'col
 
 async function loadJSON(path) {
   try {
-    const r = await fetch(path);
+    const r = await fetch(path, { cache: 'no-store' });
     if (!r.ok) return null;
     return await r.json();
   } catch { return null; }
@@ -821,8 +888,9 @@ document.getElementById('langToggle')?.addEventListener('click', () => {
     if (document.querySelector('.results-layout')) loadResultsData();
     if (document.querySelector('.players-grid'))   loadPlayersData();
     if (document.querySelector('.board-grid'))     loadBoardData();
-    if (document.querySelector('.tickets-matches'))loadTicketsData();
+    if (document.querySelector('.tickets-matches')) loadTicketsData();
     if (document.querySelector('.jobs-list'))      loadJobsData();
     if (document.querySelector('.countdown-league')) loadMatchData();
+    if (document.querySelector('.news-grid'))      loadNewsData();
   }, 100);
 });
