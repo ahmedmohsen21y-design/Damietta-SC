@@ -206,5 +206,24 @@
   </div>
 </footer>
 <script src="script.js"></script>
+  <script>
+fetch('/_data/products/index.json')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+
+    const grid = document.querySelector('.store-grid');
+
+    // حسب شكل البيانات عندك
+    const items = data.products || data.files || [];
+
+    grid.innerHTML = items.map(item => `
+      <div class="product-card">
+        <div class="product-name">${item.title}</div>
+      </div>
+    `).join('');
+  })
+  .catch(err => console.error('Error loading products:', err));
+</script>
 </body>
 </html>
